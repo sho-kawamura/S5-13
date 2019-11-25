@@ -190,10 +190,10 @@ const ShapeService = function () {
             shape['circle'] = [shape['matrix'][0][0] - 30, shape['matrix'][0][1] - 10];
             shape['square'] = [shape['matrix'][1][0] - 30, shape['matrix'][1][1] - 5];
           } else if (shape['shapeType'] == "shape2") {
-            shape['circle'] = [shape['matrix'][0][0] -25, shape['matrix'][0][1] -10];
+            shape['circle'] = [shape['matrix'][0][0] - 25, shape['matrix'][0][1] - 10];
             shape['square'] = [shape['matrix'][2][0] - 25, shape['matrix'][2][1] + 25];
           } else if (shape['shapeType'] == "shape3") {
-            shape['circle'] = [shape['matrix'][2][0] - 25, shape['matrix'][0][1] -10];
+            shape['circle'] = [shape['matrix'][2][0] + 25, shape['matrix'][0][1] + 10];
             shape['square'] = [shape['matrix'][1][0] - 25, shape['matrix'][1][1] + 25];
           }
     };
