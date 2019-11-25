@@ -362,6 +362,7 @@ $(function () {
       circleTouched = true;   // 回転用円画像タッチ開始
     } else {
       targetShapeIdxs = sps.getSelectShapeIdx(downPoint, baseShapes);
+      selectShapeIdxs = null;
     }
 
   };
@@ -377,8 +378,8 @@ $(function () {
 
     if (touched) {
       if (!circleTouched) {
-        // // 円画像タッチ以外の場合、図形選択は解除
-        //selectShapeIdxs = null;
+        // 円画像タッチ以外の場合、図形選択は解除
+        selectShapeIdxs = null;
       }
 
       // 移動後の座標
@@ -433,15 +434,15 @@ $(function () {
     let touchEndY = Math.floor(downPoint[1]);
 
     if (Math.abs(touchStartX - touchEndX) < 3 && Math.abs(touchStartY - touchEndY) < 3) {
-      // クリック判定（タッチ開始時座標と終了座標が僅差であればクリックとみなす）
-      selectIdx = sps.getSelectShapeIdx(downPoint, baseShapes);
-      if (selectIdx !== null) {
+       // クリック判定（タッチ開始時座標と終了座標が僅差であればクリックとみなす）
+       selectIdx = sps.getSelectShapeIdx(downPoint, baseShapes);
+       if (selectIdx !== null) {
        // 選択した図形が手前に描画されるよう図形データの配列順番を調整し、最後尾の選択図形のインデックスを取得
        selectShapeIdxs = sps.resortShapesForSelect(selectIdx, baseShapes);
        // 選択した図形が手前に描画されるよう画像データの配列順番を調整し、最後尾の選択図形のインデックスを取得
        img = sps.resortImagesForSelect(selectIdx,img);
        img_f = sps.resortImagesForSelect(selectIdx,img_f);
-      } else{
+      }else{
         selectShapeIdxs = null;  // 図形選択なし
       }
     }
