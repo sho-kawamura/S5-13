@@ -362,7 +362,7 @@ $(function () {
       circleTouched = true;   // 回転用円画像タッチ開始
     } else {
       targetShapeIdxs = sps.getSelectShapeIdx(downPoint, baseShapes);
-      selectShapeIdxs = null;
+      //selectShapeIdxs = null;
     }
 
   };
@@ -377,15 +377,16 @@ $(function () {
     e.preventDefault(); // デフォルトイベントをキャンセル
 
     if (touched) {
-      if (!circleTouched) {
-        // 円画像タッチ以外の場合、図形選択は解除
-        selectShapeIdxs = null;
-      }
 
       // 移動後の座標
       let downPoint = sps.getTouchPoint(e, canvasPosition.top, canvasPosition.left);   // マウスダウン（orタッチ）座標
       let currentX = downPoint[0];
       let currentY = downPoint[1];
+
+      if (!circleTouched) {
+        // 円画像タッチ以外の場合、図形選択は解除
+        selectShapeIdxs = null;
+      }
 
       //ここのコードを追加する（開始）
       if (currentX < 0 || currentY < 0 || canvasPosition.width < currentX || canvasPosition.height < currentY) {
@@ -443,7 +444,7 @@ $(function () {
        img = sps.resortImagesForSelect(selectIdx,img);
        img_f = sps.resortImagesForSelect(selectIdx,img_f);
       }else{
-        selectShapeIdxs = null;  // 図形選択なし
+        //selectShapeIdxs = null;  // 図形選択なし
       }
     }
     targetShapeIdxs = null;  // 移動対象の図形設定を解除
