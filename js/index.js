@@ -378,7 +378,7 @@ $(function () {
     if (touched) {
       if (!circleTouched) {
         // // 円画像タッチ以外の場合、図形選択は解除
-        // selectShapeIdxs = null;
+        //selectShapeIdxs = null;
       }
 
       // 移動後の座標
@@ -442,7 +442,7 @@ $(function () {
        img = sps.resortImagesForSelect(selectIdx,img);
        img_f = sps.resortImagesForSelect(selectIdx,img_f);
       } else{
-        //selectShapeIdxs = null;  // 図形選択なし
+        selectShapeIdxs = null;  // 図形選択なし
       }
     }
     targetShapeIdxs = null;  // 移動対象の図形設定を解除
